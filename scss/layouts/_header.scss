@@ -1,3 +1,8 @@
+.active {
+    background-color: $bg-color;
+    box-shadow: 0 0 50px 0 rgba(228, 226, 226, 0.5);
+}
+
 header {
     position: fixed;
     top: 0;

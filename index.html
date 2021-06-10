@@ -782,42 +782,6 @@
                         <img class="products__hover" src="./img/logo-light6.png" alt="">
                     </div>
                 </div>
-                <div class="col-xl-2 products__item">
-                    <div class="products_logo">
-                        <img class="products__image" src="./img/logo-pink3.png" alt="">
-                        <img class="products__hover" src="./img/logo-light3.png" alt="">
-                    </div>
-                </div>
-                <div class="col-xl-2 products__item">
-                    <div class="products_logo">
-                        <img class="products__image" src="./img/logo-pink2.png" alt="">
-                        <img class="products__hover" src="./img/logo-light2.png" alt="">
-                    </div>
-                </div>
-                <div class="col-xl-2 products__item">
-                    <div class="products_logo">
-                        <img class="products__image" src="./img/logo-pink1.png" alt="">
-                        <img class="products__hover" src="./img/logo-light1.png" alt="">
-                    </div>
-                </div>
-                <div class="col-xl-2 products__item">
-                    <div class="products_logo">
-                        <img class="products__image" src="./img/logo-pink4.png" alt="">
-                        <img class="products__hover" src="./img/logo-light4.png" alt="">
-                    </div>
-                </div>
-                <div class="col-xl-2 products__item">
-                    <div class="products_logo">
-                        <img class="products__image" src="./img/logo-pink5.png" alt="">
-                        <img class="products__hover" src="./img/logo-light5.png" alt="">
-                    </div>
-                </div>
-                <div class="col-xl-2 products__item">
-                    <div class="products_logo">
-                        <img class="products__image" src="./img/logo-pink6.png" alt="">
-                        <img class="products__hover" src="./img/logo-light6.png" alt="">
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -923,6 +887,7 @@
             </div>
         </div>
     </footer>
+    <button class="sroll__top" onclick="scrolltoTop()"><i class="fa fa-arrow-up"></i></button>
     <!-- jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- bootstrap 4 -->
@@ -1077,17 +1042,30 @@
         });
 
         window.onscroll = function () {
-            scrollFunction();
+            showMenuFunction();
+            hideToShowScroll();
         };
 
-        function scrollFunction() {
+        function showMenuFunction() {
             if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-                document.getElementById("header").style.background = "#fff";
-                document.getElementById("header").style.boxShadow = "0 0 50px 0 rgb(0 0 0 / 10%)";
+                $('#header').addClass('active');
             } else {
-                document.getElementById("header").style.background = "none";
-                document.getElementById("header").style.boxShadow = "none";
+                $('#header').removeClass('active');
             }
+        }
+
+        function hideToShowScroll() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                $('.sroll__top').css('display', 'block');
+            } else {
+                $('.sroll__top').css('display', 'none');
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function scrolltoTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
         }
     </script>
 </body>
